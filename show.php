@@ -72,3 +72,4 @@ $list_of_toDo= showToDo($_SESSION['login']['id']);
 </div>
 </body>
 </html>
+<?php $_SESSION['check']= 1 ; ?>

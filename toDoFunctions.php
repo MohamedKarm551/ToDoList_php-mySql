@@ -47,7 +47,10 @@ function getToDoById($id){
 function updateToDo($id , $title , $body , $img ){
     $connection= connection();// عشان نخلي نفس الاتصال مستخدم مستخدمش أكثر من اتصال ملهوش علاقة ببعضه
     $res = mysqli_query($connection, "UPDATE `todos` SET `title`='$title' , `body` = '$body' , `img` = '$img' WHERE  `id` = '$id' " );
-    return mysqli_affected_rows($connection);// لو الاتصال ده أثر في قاعدة البيانات بتاعتي 
+    $rows_affected = mysqli_affected_rows($connection);
+    mysqli_close($connection);
+    return true; // كان في هنا ايرور بسبب لإني لما مبعملش أي تعديل في الداتا بيز الداتا بتبوظ في العرض  
+    // return $affect;// لو الاتصال ده أثر في قاعدة البيانات بتاعتي 
 }
 
 
